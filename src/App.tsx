@@ -3,7 +3,8 @@ import WordCount from "./components/WordCount";
 
 import TitleBar from "./components/TitleBar";
 import Submit from "./components/Submit";
-import Helper from "./Utils/helper";
+import QuillToolbar from "./components/QuillToolbar";
+
 
 function App() {
   const [value, setValue] = useState(0);
@@ -16,10 +17,10 @@ function App() {
       <div>
         <div className="mx-auto wrapper">
           <TitleBar />
-          <Helper onValue={handleValue} />
-
+          <QuillToolbar onValue={handleValue} />
+          <WordCount wordCount={value} />
         </div>
-
+        <Submit />
       </div>
     </>
   );
