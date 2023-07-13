@@ -73,7 +73,8 @@ const QuillToolbar: React.FC<ChildProps> = ({ onValueFromChild }) => {
           ref={quillRef}
           onChange={setValue}
         />
-       
+        <p className="hidden">{getWordCount()}</p>
+        <Popup onFileChange={handleFileChange} />
       </div>
     </EditorContext.Provider>
   );
