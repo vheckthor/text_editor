@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import WordCount from "./components/WordCount";
+
+import TitleBar from "./components/TitleBar";
+import Submit from "./components/Submit";
+import Helper from "./Utils/helper";
 
 function App() {
+  const [value, setValue] = useState(0);
+  const handleValue = (value: number) => {
+    setValue(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <div className="mx-auto wrapper">
+          <TitleBar />
+          <Helper onValue={handleValue} />
+
+        </div>
+
+      </div>
+    </>
   );
 }
 
