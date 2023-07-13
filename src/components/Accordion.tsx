@@ -10,9 +10,10 @@ import { EditorContext } from "../context/EditorContext";
 
 interface AccordionProps {
   onFileChange: (file: File) => void;
+  LinkorVideo: (content: string, type: "link" | "video") => void;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ onFileChange }) => {
+const Accordion: React.FC<AccordionProps> = ({ onFileChange, LinkorVideo }) => {
   const { incrementWordCount } = useContext(EditorContext);
   const [text, setText] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,7 +73,7 @@ const Accordion: React.FC<AccordionProps> = ({ onFileChange }) => {
             <span className="popup-category">
               <span className="popup-category-title text-[12px]">Video</span>
               <span className="popup-category-sm text-[8px]">
-                Youtube, Vimeo
+                Embed a Youtube Video
               </span>
             </span>
           </p>
@@ -81,7 +82,7 @@ const Accordion: React.FC<AccordionProps> = ({ onFileChange }) => {
             <span className="popup-category">
               <span className="popup-category-title text-[12px]">Social</span>
               <span className="popup-category-sm text-[8px]">
-                Instagram, Tik Tok, Snapchat, Facebook
+                Embed a Facebook link
               </span>
             </span>
           </p>
@@ -94,7 +95,20 @@ const Accordion: React.FC<AccordionProps> = ({ onFileChange }) => {
           onFileChange={handleFileChange}
         />
       )}
-      
+      {text === "videos" && (
+        <Video
+          isOpen={isModalOpen}
+          LinkorVideo={LinkorVideo}
+          isClose={closeModal}
+        />
+      )}
+      {text === "links" && (
+        <SocialMedia
+          isOpen={isModalOpen}
+          LinkorVideo={LinkorVideo}
+          isClose={closeModal}
+        />
+      )}
     </div>
   );
 };
