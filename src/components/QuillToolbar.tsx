@@ -5,28 +5,14 @@ import Popup from "./Accordion";
 import { EditorContext } from "../context/EditorContext";
 
 interface ChildProps {
-  onValueFromChild: (value: number) => void;
+  onValue: (value: number) => void;
+  handleFileChange: (file: File) => void;
 }
 
-const QuillToolbar: React.FC<ChildProps> = ({ onValueFromChild }) => {
+const QuillToolbar: React.FC<ChildProps> = ({ onValue, handleFileChange }) => {
   const quillRef = useRef<ReactQuill>(null);
   const [file, setFile] = useState<File | null>(null);
   const [value, setValue] = useState("");
-
-  const handleFileChange = (file: File) => {
-    setFile(file);
-    const reader = new FileReader();
-    reader.onload = () => {
-      console.log(file);
-      const dataUrl = reader.result as string;
-      const quill = quillRef.current?.getEditor();
-      if (quill) {
-        const range = quill.getSelection();
-        quill.insertEmbed(range?.index || 0, "image", dataUrl, "user");
-      }
-    };
-    reader.readAsDataURL(file);
-  };
 
   const modules = {
     toolbar: [
@@ -46,7 +32,7 @@ const QuillToolbar: React.FC<ChildProps> = ({ onValueFromChild }) => {
   const getWordCount = () => {
     const text = value.replace(/(<([^>]+)>)/gi, "");
     const words = text.trim().split(/\s+/);
-    onValueFromChild(words.length);
+    onValue(words.length);
     return words.length;
   };
 
