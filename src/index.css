@@ -237,3 +237,9 @@ button {
 .toggle-container.on .toggle-handle {
   transform: translateX(10px);
 }
+
+.ql-editor .ql-video {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 2%;
+}
