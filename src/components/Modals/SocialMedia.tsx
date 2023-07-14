@@ -47,16 +47,18 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
         </div>
         <div className="px-3">
           <div className="flex flex-col h-[56px] my-4 w-[611px]">
-            <label className="mb-2 social-media text-[10px] uppercase">
+            <label
+              className="mb-2 social-media text-[10px] uppercase"
+              htmlFor="Social Media Platform"
+            >
               Social Media Platform
             </label>
             <select
               onChange={handleProviderInput}
               className="bg-[#FAFAFA] border border-gray-200 h-[34px] outline-gray-300 px-2 text-[12px]"
               name="social-media"
-              id=""
+              id="Social Media Platform"
             >
-              
               {socials.map((obj, idx) => (
                 <option key={idx} value={obj}>
                   {obj}
@@ -66,7 +68,10 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
           </div>
 
           <div className="flex flex-col h-[56px] my-4 w-[611px]">
-            <label className="mb-2 social-media text-[10px] uppercase">
+            <label
+              className="mb-2 social-media text-[10px] uppercase"
+              htmlFor="url"
+            >
               url
             </label>
             <input
@@ -74,12 +79,15 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
               className="bg-[#FAFAFA] border border-gray-200 h-[34px] outline-gray-300 px-2 text-[12px]"
               name="url"
               placeholder=""
-              id=""
+              id="url"
             />
           </div>
 
           <div className="flex flex-col h-[56px] my-4 w-[611px]">
-            <label className="mb-2 social-media text-[10px] uppercase">
+            <label
+              htmlFor="Code"
+              className="mb-2 social-media text-[10px] uppercase"
+            >
               Code
             </label>
             <input
@@ -87,7 +95,7 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
               className="bg-[#FAFAFA] border border-gray-200 h-[34px] outline-gray-300 px-2 text-[12px]"
               name="code"
               placeholder=""
-              id=""
+              id="Code"
             />
           </div>
 
@@ -107,6 +115,7 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
             <button
               className="bg-green-800 hover:bg-green-700 mr-2 text-white rounded-md"
               onClick={handleSubmit}
+              data-testid ='embed'
             >
               Embed
             </button>
