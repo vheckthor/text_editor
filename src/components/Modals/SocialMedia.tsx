@@ -1,15 +1,12 @@
 import React, { useState, useContext } from "react";
 import ReactModal from "react-modal";
 import { FaTimes } from "react-icons/fa";
-import { EditorContext } from "../context/EditorContext";
+import { EditorContext } from "../../context/EditorContext";
+import { LinkAndVideoProps } from "../../types/interfaces";
 
-interface ModalProps {
-  isOpen: boolean;
-  isClose: () => void;
-  LinkorVideo: (content: string, type: "link" | "video") => void;
-}
 
-const SocialMedia: React.FC<ModalProps> = ({
+
+const SocialMedia: React.FC<LinkAndVideoProps> = ({
   isOpen,
   isClose,
   LinkorVideo,

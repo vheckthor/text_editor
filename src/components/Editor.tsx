@@ -3,12 +3,11 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { EditorContext } from "../context/EditorContext";
 import Accordion from "./Accordion";
+import { ChildProps } from "../types/interfaces";
 
-interface ChildProps {
-  onValue: (value: number) => void;
-}
 
-const QuillToolbar: React.FC<ChildProps> = ({ onValue }) => {
+
+const Editor: React.FC<ChildProps> = ({ onValue }) => {
   const quillRef = useRef<ReactQuill>(null);
   const [file, setFile] = useState<File | null>(null);
   const [value, setValue] = useState("");
@@ -96,4 +95,4 @@ const QuillToolbar: React.FC<ChildProps> = ({ onValue }) => {
   );
 };
 
-export default QuillToolbar;
+export default Editor;

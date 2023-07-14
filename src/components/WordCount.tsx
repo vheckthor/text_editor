@@ -1,8 +1,6 @@
 import React from "react";
+import { WordCountProps } from "../types/interfaces";
 
-interface WordCountProps {
-  wordCount: number;
-}
 
 const WordCount: React.FC<WordCountProps> = ({ wordCount }) => {
   return (

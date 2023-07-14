@@ -2,16 +2,12 @@ import React, { useState, useContext } from "react";
 import { AiFillPicture } from "react-icons/ai";
 import { FaVideo } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
-import Picture from "./Picture";
-import Video from "./Video";
-import SocialMedia from "./SocialMedia";
+import Picture from "./Modals/Picture";
+import Video from "./Modals/Video";
+import SocialMedia from "./Modals/SocialMedia";
 import { EditorContext } from "../context/EditorContext";
+import { AccordionProps } from "../types/interfaces";
 
-
-interface AccordionProps {
-  onFileChange: (file: File) => void;
-  LinkorVideo: (content: string, type: "link" | "video") => void;
-}
 
 const Accordion: React.FC<AccordionProps> = ({ onFileChange, LinkorVideo }) => {
   const { incrementWordCount } = useContext(EditorContext);

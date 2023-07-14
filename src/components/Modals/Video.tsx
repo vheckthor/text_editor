@@ -1,15 +1,10 @@
 import React, { useState, useContext } from "react";
 import ReactModal from "react-modal";
 import { FaTimes } from "react-icons/fa";
-import { EditorContext } from "../context/EditorContext";
+import { EditorContext } from "../../context/EditorContext";
+import { LinkAndVideoProps } from "../../types/interfaces";
 
-interface ModalProps {
-  isOpen: boolean;
-  isClose: () => void;
-  LinkorVideo: (content: string, type: "link" | "video") => void;
-}
-
-const Video: React.FC<ModalProps> = ({ LinkorVideo, isOpen, isClose }) => {
+const Video: React.FC<LinkAndVideoProps> = ({ LinkorVideo, isOpen, isClose }) => {
   const { incrementWordCount } = useContext(EditorContext);
   const [provider, setProvider] = useState("");
   const [url, setUrl] = useState("");
@@ -28,13 +23,6 @@ if(match){
   setUrl(`https://www.youtube.com/embed/${videoId}`);
 }
 setUrl(``);
-  
-  // console.log(provider);
-  // const youtubeRegex =
-  //   /^(?:(?:https?:)?\/\/)?(?:(?:www|m)\.)?(?:(?:youtube\.com|youtu.be))(?:\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(?:\S+)?$/;
-  //   const matches = url.match(youtubeRegex);
-  //   const [_, videoId] = matches;
-
   LinkorVideo(`https://www.youtube.com/embed/${videoId}`, "video");
   incrementWordCount();
   isClose();

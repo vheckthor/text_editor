@@ -1,15 +1,11 @@
 import React, { useContext, useRef } from "react";
 import ReactModal from "react-modal";
 import { FaTimes } from "react-icons/fa";
-import { EditorContext } from "../context/EditorContext";
+import { EditorContext } from "../../context/EditorContext";
+import { PictureProps } from "../../types/interfaces";
 
-interface ModalProps {
-  onFileChange: (file: File) => void;
-  isOpen: boolean;
-  isClose: () => void;
-}
 
-const Picture: React.FC<ModalProps> = ({
+const Picture: React.FC<PictureProps> = ({
   onFileChange,
   isOpen,
   isClose,
