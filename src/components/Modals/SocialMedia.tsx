@@ -40,13 +40,13 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
       contentLabel="Modal"
       className="custom-modal bg-[#a1a1aa]"
     >
-      <div className="bg-white rounded-md p-3">
+      <div className="bg-white rounded-md p-3 mod">
         <div className="flex items-center justify-between mb-4 px-2">
           <p className="font-bold px-1">Embed</p>
           <FaTimes className="cursor-pointer mr-2" onClick={isClose} />
         </div>
         <div className="px-3">
-          <div className="flex flex-col h-[56px] my-4 w-[611px]">
+          <div className="flex flex-col h-[56px] my-4 w-[611px] mod-input">
             <label
               className="mb-2 social-media text-[10px] uppercase"
               htmlFor="Social Media Platform"
@@ -67,7 +67,7 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
             </select>
           </div>
 
-          <div className="flex flex-col h-[56px] my-4 w-[611px]">
+          <div className="flex flex-col h-[56px] my-4 w-[611px] mod-input">
             <label
               className="mb-2 social-media text-[10px] uppercase"
               htmlFor="url"
@@ -83,7 +83,7 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
             />
           </div>
 
-          <div className="flex flex-col h-[56px] my-4 w-[611px]">
+          <div className="flex flex-col h-[56px] my-4 w-[611px] mod-input">
             <label
               htmlFor="Code"
               className="mb-2 social-media text-[10px] uppercase"
@@ -115,7 +115,7 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
             <button
               className="bg-green-800 hover:bg-green-700 mr-2 text-white rounded-md"
               onClick={handleSubmit}
-              data-testid ='embed'
+              data-testid="embed"
             >
               Embed
             </button>

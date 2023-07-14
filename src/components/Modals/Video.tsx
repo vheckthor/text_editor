@@ -36,13 +36,13 @@ setUrl(``);
       contentLabel="Modal"
       className="custom-modal bg-[#a1a1aa]"
     >
-      <div className="bg-white rounded-md p-3">
+      <div className="bg-white rounded-md p-3 mod">
         <div className="flex items-center justify-between mb-4 px-2">
           <p className="font-bold px-1">Embed</p>
           <FaTimes className="cursor-pointer mr-2" onClick={isClose} />
         </div>
         <div className="px-3">
-          <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px]">
+          <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px] mod-input">
             <label
               htmlFor="provider-select"
               className="mb-2 social-media text-[10px] uppercase"
@@ -59,12 +59,15 @@ setUrl(``);
               <option>Youtube</option>
             </select>
           </div>
-          <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px]">
-            <label htmlFor="URL" className="mb-2 social-media text-[10px] uppercase">
+          <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px] mod-input">
+            <label
+              htmlFor="URL"
+              className="mb-2 social-media text-[10px] uppercase"
+            >
               url
             </label>
             <input
-              className="bg-[#FAFAFA] border border-gray-200 h-[34px] hover:border-[#E7F1E9] px-2 text-[12px]"
+              className="bg-[#FAFAFA] border border-gray-200 h-[34px] hover:border-[#E7F1E9] px-2 text-[12px] "
               onChange={(e) => setUrl(e.target.value)}
               name="code"
               placeholder=""

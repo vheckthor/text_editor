@@ -1,12 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   display: flex;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -45,11 +45,11 @@ button {
 }
 
 .btn:hover {
-  background-color: #F7FCF8;
+  background-color: #f7fcf8;
 }
 
 .counter {
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 0 0 5px 5px;
   display: flex;
   flex-grow: 1;
@@ -59,17 +59,13 @@ button {
 }
 
 .icons {
-  color: #010E05 !important;
+  color: #010e05 !important;
   margin: 4px 10px;
 }
-
-
-
 
 /* Modal */
 .custom-modal {
   align-items: center;
-  /* background-color: #fff; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +75,7 @@ button {
 }
 
 .custom-modal-child {
-  background-color: #FFF;
+  background-color: #fff;
   border: 1px solid #212121;
   opacity: none;
   height: 370px;
@@ -108,7 +104,7 @@ button {
 }
 
 .popup-btn {
-  background-color: #E7F1E9;
+  background-color: #e7f1e9;
   color: black;
   cursor: pointer;
   display: flex;
@@ -116,7 +112,7 @@ button {
   align-items: center;
   border-radius: 25px;
   margin: 0 10px 3px !important;
-  padding: 0.6em .9em;
+  padding: 0.6em 0.9em;
   width: 10px;
 }
 
@@ -134,7 +130,7 @@ button {
 }
 
 .popup-select-box {
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: 1px 1px #00000014;
   display: flex;
   flex-direction: column;
@@ -156,15 +152,15 @@ button {
 }
 
 .submit-btn {
-  background-color: #0A7227;
+  background-color: #0a7227;
   border-radius: 4px;
-  color: #FFF;
+  color: #fff;
 }
 
 .submit-btn-alt {
-  background-color: #0A7227;
+  background-color: #0a7227;
   border-radius: 4px;
-  color: #FFF;
+  color: #fff;
 }
 
 .submit-wrapper {
@@ -175,7 +171,7 @@ button {
 
 .ql-toolbar {
   background-color: #fff;
-  border: 1px solid #E7F1E9 !important;
+  border: 1px solid #e7f1e9 !important;
   border-radius: 5px;
   display: flex !important;
   justify-content: flex-start !important;
@@ -194,8 +190,8 @@ button {
 }
 
 .wrapper {
-  background-color: #FAFAFA;
-  border: 1px solid #E7F1E9;
+  background-color: #fafafa;
+  border: 1px solid #e7f1e9;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -204,8 +200,6 @@ button {
   margin: 10px;
   /* position: relative; */
 }
-
-
 
 /* Toggle */
 .toggle-container {
@@ -230,7 +224,7 @@ button {
 }
 
 .toggle-container.on {
-  background-color: #0A7227;
+  background-color: #0a7227;
 }
 
 .toggle-container.on .toggle-handle {
@@ -238,20 +232,28 @@ button {
 }
 
 .ql-editor .ql-video {
-    width: 100%;
-    height: 50vh;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 2%;
 }
 
-.ql-toolbar .ql-snow {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
-
-.ql-toolbar {
-  width: 100% !important;
-}
-
-.quill {
-  overflow-x: hidden;
+@media (max-width: 576px) {
+  .ql-editor{
+    width: 57%;
+  }
+  .container {
+    width: 60% !important;
+    
+  }
+  .ql-toolbar {
+    width: 50% !important;
+  }
+  .mod{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mod-input{
+    width: 80%;
+  }
 }

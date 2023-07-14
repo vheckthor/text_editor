@@ -29,7 +29,7 @@ const Picture: React.FC<PictureProps> = ({
       contentLabel="Modal"
       className="custom-modal bg-[#a1a1aa]"
     >
-      <div className="bg-white rounded-md p-3">
+      <div className="bg-white rounded-md p-3 mod">
         <div className="flex items-center justify-between mb-4 px-2">
           <p className="font-bold px-1 text-[16px]">Embed</p>
           <FaTimes className="cursor-pointer mr-2" onClick={isClose} />
@@ -37,7 +37,7 @@ const Picture: React.FC<PictureProps> = ({
         <div className="px-3">
           <p className="mb-2 text-[14px]">Upload Image</p>
           <small className="text-[10px] uppercase">File upload</small>
-          <div className="bg-[#FAFAFA] border border-dashed border-green-700 flex h-[141px] w-[611px] items-center justify-center mt-2 mb-3 mx-auto">
+          <div className="bg-[#FAFAFA] border border-dashed border-green-700 flex h-[141px] w-[611px] items-center justify-center mt-2 mb-3 mx-auto mod-input">
             <button
               onClick={() => {
                 ref.current?.click();

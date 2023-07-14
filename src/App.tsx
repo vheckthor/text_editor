@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="mx-auto container">
         <div className="mx-auto wrapper">
           <TitleBar />
           <QuillToolbar onValue={handleValue} />
