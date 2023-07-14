@@ -1,8 +1,8 @@
 // stories/WordCount.stories.tsx
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { WordCountProps } from "../types/interfaces";
 import WordCount from "../components/WordCount";
+import { WordCountProps } from "../types/interfaces";
 
 export default {
   title: "WordCount",
