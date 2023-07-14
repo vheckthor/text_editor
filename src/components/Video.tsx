@@ -19,12 +19,26 @@ const Video: React.FC<ModalProps> = ({ LinkorVideo, isOpen, isClose }) => {
   };
 
 const handleSubmit = () => {
-  console.log(provider);
-  console.log(url);
 
-  LinkorVideo(url, "video");
-  incrementWordCount()
+  const regex = /\/watch\?v=([A-Za-z0-9_-]{11})/;
+  const match = url.match(regex);
+  let videoId =''
+if(match){
+  videoId = match[1];
+  setUrl(`https://www.youtube.com/embed/${videoId}`);
+}
+setUrl(``);
+  
+  // console.log(provider);
+  // const youtubeRegex =
+  //   /^(?:(?:https?:)?\/\/)?(?:(?:www|m)\.)?(?:(?:youtube\.com|youtu.be))(?:\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(?:\S+)?$/;
+  //   const matches = url.match(youtubeRegex);
+  //   const [_, videoId] = matches;
+
+  LinkorVideo(`https://www.youtube.com/embed/${videoId}`, "video");
+  incrementWordCount();
   isClose();
+  console.log(`https://www.youtube.com/embed/${videoId}`);
 };
 
   return (
@@ -41,20 +55,24 @@ const handleSubmit = () => {
         </div>
         <div className="px-3">
           <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px]">
-            <label className="mb-2 social-media text-[10px] uppercase">
+            <label
+              htmlFor="provider-select"
+              className="mb-2 social-media text-[10px] uppercase"
+            >
               Video provider
             </label>
             <select
               onChange={handleProviderInput}
               className="bg-[#FAFAFA] border border-gray-200 h-[34px] outline-gray-300 px-2 text-[12px]"
               name="social-media"
+              data-testid="provider-select"
               id=""
             >
               <option>Youtube</option>
             </select>
           </div>
           <div className="flex flex-col h-[56px] mx-3 my-4 w-[611px]">
-            <label className="mb-2 social-media text-[10px] uppercase">
+            <label htmlFor="URL" className="mb-2 social-media text-[10px] uppercase">
               url
             </label>
             <input
@@ -63,12 +81,14 @@ const handleSubmit = () => {
               name="code"
               placeholder=""
               id="url"
+              data-testid="URL"
             />
           </div>
           <div className="mx-3 py-2 text-[14px]">
             <button
               className="bg-green-800 hover:bg-green-700 mr-2 text-white rounded-md"
               onClick={handleSubmit}
+              data-testid="embed"
             >
               Embed
             </button>

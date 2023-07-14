@@ -48,6 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({ onFileChange, LinkorVideo }) => {
     <div className="absolute flex flex-col h-[32vh] justify-start my-[10px] px-2">
       <div
         onClick={handleClickBtn}
+        aria-labelledby="Add Link"
         className="bg-[#E7F1E9] cursor-pointer flex items-center justify-center w-[30px] mb-1 ml-2 p-2 px-5 rounded-full"
       >
         +

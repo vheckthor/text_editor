@@ -3,7 +3,7 @@ import WordCount from "./components/WordCount";
 
 import TitleBar from "./components/TitleBar";
 import Submit from "./components/Submit";
-import QuillToolbar from "./components/QuillToolbar";
+import QuillToolbar from "./components/Editor";
 
 
 function App() {

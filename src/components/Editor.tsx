@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { EditorContext } from "../context/EditorContext";
@@ -6,16 +6,18 @@ import Accordion from "./Accordion";
 
 interface ChildProps {
   onValue: (value: number) => void;
-
 }
 
-const QuillToolbar: React.FC<ChildProps> = ({
-  onValue,
-  
-}) => {
+const QuillToolbar: React.FC<ChildProps> = ({ onValue }) => {
   const quillRef = useRef<ReactQuill>(null);
   const [file, setFile] = useState<File | null>(null);
   const [value, setValue] = useState("");
+
+  useEffect(() => {
+    if (file) {
+      handleFileChange(file);
+    }
+  }, [file]);
 
   const modules = {
     toolbar: [
@@ -38,58 +40,33 @@ const QuillToolbar: React.FC<ChildProps> = ({
     onValue(words.length);
     return words.length;
   };
-const handleFileChange = (file: File) => {
-  setFile(file);
-  const reader = new FileReader();
-  reader.onload = () => {
-    console.log(file);
-    const dataUrl = reader.result as string;
+
+  const handleFileChange = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result as string;
+      const quill = quillRef.current?.getEditor();
+      if (quill) {
+        const length = quill.getLength();
+        quill.insertEmbed(length, "image", dataUrl, "user");
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const LinkorVideo = (content: string, type: "link" | "video") => {
     const quill = quillRef.current?.getEditor();
     if (quill) {
-      const range = quill.getSelection();
-      if (range) {
-        
-        quill.insertEmbed(range.length + 1, "image", dataUrl, "user");
-      }
-      else{
-
-        quill.insertEmbed(0, "image", dataUrl, "user");
+      const length = quill.getLength();
+      if (type === "link") {
+        quill.insertText(length, content, "link", content, "user");
+        quill.setSelection(length, length + content.length);
+      } else if (type === "video") {
+        quill.insertEmbed(length, "video", content, "user");
+        quill.setSelection(length, length + content.length);
       }
     }
   };
-  reader.readAsDataURL(file);
-};
-
-const LinkorVideo = (
-  content: string,
-  type: "link" | "video"
-) => {
-  const quill = quillRef.current?.getEditor();
-  if (quill) {
-    const range = quill.getSelection();
-    if (range) {
-      const index = range.index;
-      if (type === "link") {
-        quill.insertText(index, content, "link", content, "user");
-        quill.setSelection(index, index + content.length);
-      } else if (type === "video") {
-        quill.insertEmbed(index, "video", content, "user");
-        
-        quill.setSelection(index, index + 1);
-      }
-    } else {
-      if (type === "link") {
-        quill.insertText(0, content, "link", content, "user");
-        quill.setSelection(0, content.length);
-      } else if (type === "video") {
-        quill.insertEmbed(0, "video", content, "api");
-        quill.setSelection(0, content.length);
-      }
-    }
-  }
-};
-
-  console.log(file);
 
   return (
     <EditorContext.Provider
@@ -113,7 +90,7 @@ const LinkorVideo = (
           onChange={setValue}
         />
         <p className="hidden">{getWordCount()}</p>
-        <Accordion onFileChange={handleFileChange} LinkorVideo={LinkorVideo} />
+        <Accordion onFileChange={setFile} LinkorVideo={LinkorVideo} />
       </div>
     </EditorContext.Provider>
   );

@@ -65,6 +65,7 @@ const Picture: React.FC<ModalProps> = ({
             <button
               className="border-solid border border-[#CEE3D4] mr-2 rounded-md"
               onClick={isClose}
+              data-testid="Cancel"
             >
               Cancel
             </button>
