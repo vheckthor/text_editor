@@ -22,6 +22,6 @@ describe("QuillToolbar Component", () => {
     // Check if the onValue function is called with the correct argument
     expect(mockOnValue).toHaveBeenCalledWith(1); // Assuming "Hello" and "World" are considered as separate words
 
-    // You can add more assertions to test other functionalities of the component
+    
   });
 });

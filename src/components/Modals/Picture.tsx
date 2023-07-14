@@ -51,6 +51,7 @@ const Picture: React.FC<PictureProps> = ({
                 style={{ display: "none" }}
                 onChange={handleFileChange}
                 ref={ref}
+                data-testid="file-input"
               />
             </button>
           </div>
