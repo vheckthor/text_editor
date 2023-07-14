@@ -251,3 +251,7 @@ button {
 .ql-toolbar {
   width: 100% !important;
 }
+
+.quill {
+  overflow-x: hidden;
+}
