@@ -11,7 +11,7 @@ describe("Accordion Component", () => {
 
     // Check if the component is rendered
     const addButton = screen.getByText("+");
-    expect(addButton).toBeInTheDocument();
+    expect(addButton).toBeDefined();
   });
 
   it("should open the modal when the add button is clicked", () => {
@@ -29,7 +29,7 @@ describe("Accordion Component", () => {
 
     // Check if the modal is opened
     const pictureButton = screen.getByText("Picture");
-    expect(pictureButton).toBeInTheDocument();
+    expect(pictureButton).toBeDefined();
   });
 
   it("should close the modal when the close button is clicked", () => {
@@ -44,6 +44,6 @@ describe("Accordion Component", () => {
 
     // Check if the modal is opened
     const pictureButton = screen.getByText("Picture");
-    expect(pictureButton).toBeInTheDocument();
+    expect(pictureButton).toBeDefined();
   });
 });
