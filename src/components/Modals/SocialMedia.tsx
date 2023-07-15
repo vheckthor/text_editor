@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { EditorContext } from "../../context/EditorContext";
 import { LinkAndVideoProps } from "../../types/interfaces";
-import { IoShareSocial } from "react-icons/io5";
 import EmbedModal from "../EmbedModal";
 
 const SocialMedia: React.FC<LinkAndVideoProps> = ({
@@ -32,7 +31,6 @@ const SocialMedia: React.FC<LinkAndVideoProps> = ({
       isOpen={isOpen}
       isClose={isClose}
       title="Embed"
-      icon={<IoShareSocial />}
       onConfirm={handleSubmit}
       confirmButtonText="Embed"
     >

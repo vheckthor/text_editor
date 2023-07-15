@@ -1,7 +1,6 @@
 import React, { useContext, useRef } from "react";
 import { EditorContext } from "../../context/EditorContext";
 import { PictureProps } from "../../types/interfaces";
-import { AiFillPicture } from "react-icons/ai";
 import EmbedModal from "../EmbedModal";
 
 const Picture: React.FC<PictureProps> = ({ onFileChange, isOpen, isClose }) => {
@@ -22,7 +21,6 @@ const Picture: React.FC<PictureProps> = ({ onFileChange, isOpen, isClose }) => {
       isOpen={isOpen}
       isClose={isClose}
       title="Picture"
-      icon={<AiFillPicture />}
       onConfirm={handleFileChange}
       confirmButtonText="Embed"
     >

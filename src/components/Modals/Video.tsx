@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import {FaVideo } from "react-icons/fa";
 import { EditorContext } from "../../context/EditorContext";
 import { LinkAndVideoProps } from "../../types/interfaces";
 import EmbedModal from "../EmbedModal";
@@ -36,7 +35,6 @@ const Video: React.FC<LinkAndVideoProps> = ({
       isOpen={isOpen}
       isClose={isClose}
       title="Embed"
-      icon={<FaVideo />}
       onConfirm={handleSubmit}
       confirmButtonText="Embed"
     >

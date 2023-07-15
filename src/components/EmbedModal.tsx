@@ -6,7 +6,6 @@ interface EmbedModalProps {
   isOpen: boolean;
   isClose: () => void;
   title: string;
-  icon: React.ReactNode;
   children: React.ReactNode;
   onConfirm: () => void;
   confirmButtonText: string;
@@ -16,7 +15,6 @@ const EmbedModal: React.FC<EmbedModalProps> = ({
   isOpen,
   isClose,
   title,
-  icon,
   onConfirm,
   confirmButtonText,
   children,
@@ -31,7 +29,6 @@ const EmbedModal: React.FC<EmbedModalProps> = ({
       <div className="bg-white rounded-md p-3 mod">
         <div className="flex items-center justify-between mb-4 px-2">
           <p className="font-bold px-1">{title}</p>
-          {icon}
           <FaTimes className="cursor-pointer mr-2" onClick={isClose} />
         </div>
         {children}
