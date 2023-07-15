@@ -1,3 +1,4 @@
+// Accordion.tsx
 import React, { useState, useContext } from "react";
 import { AiFillPicture } from "react-icons/ai";
 import { FaVideo } from "react-icons/fa";
@@ -7,7 +8,6 @@ import Video from "./Modals/Video";
 import SocialMedia from "./Modals/SocialMedia";
 import { EditorContext } from "../context/EditorContext";
 import { AccordionProps } from "../types/interfaces";
-
 
 const Accordion: React.FC<AccordionProps> = ({ onFileChange, LinkorVideo }) => {
   const { incrementWordCount } = useContext(EditorContext);
@@ -21,13 +21,7 @@ const Accordion: React.FC<AccordionProps> = ({ onFileChange, LinkorVideo }) => {
   };
 
   const openModal = (text: string) => {
-    if (text === "pictures") {
-      setText("pictures");
-    } else if (text === "videos") {
-      setText("videos");
-    } else if (text === "links") {
-      setText("links");
-    }
+    setText(text);
     setIsModalOpen(true);
     setClickBtn(!clickBtn);
   };
